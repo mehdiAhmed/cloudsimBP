@@ -1,0 +1,24 @@
+>>>>>>>>> order the cloudlet:
+function protected void processCloudletReturn(SimEvent ev) in DatacenterBroker CLass
+
+>>>>>>>>> time starting the execution of cloudlets
+send(getVmsToDatacentersMap().get(vm.getId()), 5, CloudSimTags.CLOUDLET_SUBMIT, cloudlet); 5 is time of starting
+in protected void submitCloudlets()  function
+in DatacenterBroker class
+
+
+
+     * The execution length of this Cloudlet (Unit: in Million Instructions
+     * (MI)). According to this length and the power of the processor (in
+     * Million Instruction Per Second - MIPS) where the cloudlet will be run,
+     * the cloudlet will take a given time to finish processing. For instance,
+     * for a cloudlet of 10000 MI running on a processor of 2000 MIPS, the
+     * cloudlet will spend 5 seconds using the processor in order to be
+     * completed (that may be uninterrupted or not, depending on the scheduling
+     * policy).
+
+Cloudlet ID    STATUS    Data center ID    VM ID    Time    Start Time    Finish Time
+    0        SUCCESS        2            0        5sec        0,1sec       5,1sec
+
+
+

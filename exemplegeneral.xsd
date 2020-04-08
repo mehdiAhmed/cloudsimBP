@@ -1,0 +1,292 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="vmList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vm" maxOccurs="unbounded" minOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>
+					id unique ID of the VM
+					userId ID of the VM's owner
+					mips the mips
+					numberOfPes amount of CPUs
+					ram amount of ram
+					bw amount of bandwidth
+					size amount of storage
+					vmm virtual machine monitor
+					cloudletScheduler cloudletScheduler policy for cloudlets
+				  </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+					  <xs:extension base="xs:string">
+                      <xs:attribute type="xs:ID" name="vmid" use="optional"/> 
+                      <xs:attribute type="xs:byte" name="mips" use="required"/>
+                      <xs:attribute type="xs:byte" name="size" use="required"/>
+                      <xs:attribute type="xs:short" name="ram" use="required"/>
+                      <xs:attribute type="xs:byte" name="bw" use="required"/>
+                      <xs:attribute type="xs:byte" name="pesNumber" use="required"/>
+                      <xs:attribute type="xs:string" name="vmm" use="required"/>
+                      <xs:attribute type="xs:byte" name="userid" use="optional"/>
+					  <xs:attribute type="xs:string" name="cloudletScheduler" use="optional" default="timeShared"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+		
+        <xs:element name="cloudletList">
+			<xs:annotation>
+                  <xs:documentation>
+					cloudletId the unique ID of this Cloudlet
+					cloudletLength the length or size (in MI) of this cloudlet to be executed in a PowerDatacenter
+					cloudletFileSize the file size (in byte) of this cloudlet BEFORE submitting to a PowerDatacenter
+					cloudletOutputSize the file size (in byte) of this cloudlet AFTER finish executing by a PowerDatacenter
+					pesNumber the pes number
+					utilizationModelCpu the utilization model cpu
+					utilizationModelRam the utilization model ram
+	 			    utilizationModelBw the utilization model bw
+				  </xs:documentation>
+                </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cloudlet" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:byte" name="id" use="optional"/>
+                      <xs:attribute type="xs:int" name="length" use="required"/>
+                      <xs:attribute type="xs:short" name="fileSize" use="required"/>
+                      <xs:attribute type="xs:byte" name="outputSize" use="required"/>
+                      <xs:attribute type="xs:IDREF" name="vmid" use="optional"/>
+                      <xs:attribute type="xs:byte" name="userid" use="optional"/>
+                      <xs:attribute type="xs:float" name="costPerBw" use="optional"/>
+                      <xs:attribute type="xs:byte" name="pesNumber" use="required"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dataCenter_list">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dataCenter" maxOccurs="unbounded" minOccurs="1">
+			  <xs:annotation>
+                  <xs:documentation>
+				  	 name the name to be associated with this entity 
+					characteristics an object of DatacenterCharacteristics
+					storageList a LinkedList of storage elements, for data simulation
+					vmAllocationPolicy the vmAllocationPolicy
+				  </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+					<xs:attribute type="xs:string" name="dc_name" use="optional"/>
+					<xs:attribute type="xs:string" name="VmAllocationPolicy" use="optional" default="VmAllocationPolicySimple"/>
+					<xs:attribute type="xs:string" name="dc_c" use="required"/>
+                  <xs:sequence>
+                    <xs:element name="host_list">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Host" maxOccurs="unbounded" minOccurs="1">
+						  <xs:annotation>
+							<xs:documentation>
+								id the id
+								ramProvisioner the ram provisioner
+								bwProvisioner the bw provisioner
+								storage the storage
+								peList the pe list
+								vmScheduler the vm scheduler
+							</xs:documentation>
+						</xs:annotation>
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="RamProvisionerPolicy">
+								<xs:annotation>
+										<xs:documentation>
+										ram the ram
+										RamProvisionerPolicytype policy type used. It represents the provisioning policy of memory to virtual machines inside a Host
+										</xs:documentation>
+								</xs:annotation>
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="RamProvisionerPolicytype" use="optional"/>
+                                        <xs:attribute type="xs:short" name="ram" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="BwProvisionerPolicy">
+								<xs:annotation>
+										<xs:documentation>
+										bw overall amount of bandwidth available in the host.
+										BwProvisionerPolicytype policy type used. It represents the provisioning policy of bandwidth to virtual machines inside a Host.
+										</xs:documentation>
+								</xs:annotation>
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="BwProvisionerPolicytype" use="optional"/>
+                                        <xs:attribute type="xs:short" name="bw" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="Pelist">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Pe" maxOccurs="unbounded" minOccurs="1">
+									  <xs:annotation>
+											<xs:documentation>
+											id the Pe ID. Processing Element it represents CPU unit, defined in terms of Millions Instructions Per Second (MIPS) rating. 
+											ASSUMPTION: All PEs under the same Machine have the same MIPS rating.
+											PeProvisionerPolicytype: Creates the new PeProvisioner
+											</xs:documentation>
+										</xs:annotation>
+                                        <xs:complexType>
+										<xs:attribute type="xs:byte" name="id" use="optional"/>
+											<xs:sequence>
+												<xs:element name="PeProvisionerPolicytype">
+													<xs:complexType>
+													<xs:simpleContent>
+														<xs:extension base="xs:string">
+															<xs:attribute type="xs:string" name="PeProvisionerPolicytype" use="optional"/>
+															<xs:attribute type="xs:byte" name="mips" use="optional"/>
+														</xs:extension>
+													</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+								
+                                <xs:element name="VmSchedulerPolicy">
+								<xs:annotation>
+										<xs:documentation>
+										VmScheduler represents the policy used by a VMM to share processing power among VMs running in a host.
+										1) VmSchedulerSpaceShared is a VMM allocation policy that allocates one or more Pe to a VM, and  
+										doesn't allow sharing of PEs. If there is no free PEs to the VM, allocation fails. Free PEs are
+										not allocated to VMs
+										2) VmSchedulerTimeShared is a VMM allocation policy that allocates one or more Pe to a VM, and
+										allows sharing of PEs by multiple VMs. This class also implements 10% performance degration due
+										to VM migration. This scheduler does not support over-subscription.
+										</xs:documentation>
+								</xs:annotation>
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="VmSchedulerType" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:byte" name="hostId" use="optional"/>
+                              <xs:attribute type="xs:int" name="storage" use="required"/>
+                              <xs:attribute type="xs:short" name="mips" use="optional"/>
+							  <xs:attribute type="xs:string" name="RamProvisioner" use="optional" default="RamProvisionerSimple"/>
+							  <xs:attribute type="xs:string" name="BwProvisioner" use="optional" default="BwProvisionerSimple"/>
+							  <xs:attribute type="xs:string" name="VmScheduler" use="optional" default="timeShared"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="dc_charasteristics">
+						<xs:annotation>
+							<xs:documentation>
+								architecture the architecture of a resource
+								os the operating system used
+								vmm the virtual machine monitor used
+								hostList list of machines in a resource
+								timeZone local time zone of a user that owns this reservation. Time zone should be of range [GMT-12 ... GMT+13]
+								costPerSec the cost per sec to use this resource
+								costPerMem the cost to use memory in this resource
+								costPerStorage the cost to use storage in this resource
+								costPerBw the cost per bw
+							</xs:documentation>
+						</xs:annotation>
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="arch" use="required"/>
+                            <xs:attribute type="xs:string" name="os" use="required"/>
+                            <xs:attribute type="xs:string" name="vmm" use="required"/>
+                            <xs:attribute type="xs:float" name="time_zone" use="required"/>
+                            <xs:attribute type="xs:float" name="costPermen" use="required"/>
+                            <xs:attribute type="xs:float" name="costPerStorage" use="required"/>
+                            <xs:attribute type="xs:float" name="costPerBw" use="required"/>
+                            <xs:attribute type="xs:float" name="costPerSecond" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Storage_List">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Hard_Drive" maxOccurs="unbounded" minOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+									An implementation of a storage system. It simulates the behaviour of a typical harddrive storage.
+									name the name of the new harddrive storage
+									Latency the latency of the harddrive in seconds
+									MaxTransferRate the maximum transfer rate in MB/sec
+									Capacity the total capacity of the harddrive in MB
+									AVGSeekTime the average seek time in seconds
+									</xs:documentation>
+								</xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+									<xs:attribute type="xs:string" name="name" use="optional"/>
+									<xs:attribute type="xs:short" name="Capacity" use="required"/>
+									<xs:attribute type="xs:short" name="MaxTransferRate" use="required"/>
+									<xs:attribute type="xs:float" name="Latency" use="required"/>
+									<xs:attribute type="xs:float" name="AVGSeekTime" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+						  <xs:element name="san" maxOccurs="unbounded" minOccurs="1">
+						  <xs:annotation>
+								<xs:documentation>
+								SANStorage represents a storage area network composed of a set of harddisks connected in a LAN.
+								capacity Storage device capacity
+								bandwidth Network bandwidth
+								networkLatency Network latency
+								</xs:documentation>
+							</xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="Hard_Drive">
+									<xs:attribute type="xs:string" name="name" use="optional"/>
+									<xs:attribute type="xs:short" name="Capacity" use="required"/>
+									<xs:attribute type="xs:short" name="Bw" use="required"/>
+									<xs:attribute type="xs:string" name="Network" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:byte" name="number_user"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

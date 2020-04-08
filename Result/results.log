@@ -1,0 +1,142 @@
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> A1 <<<<<<<<<<<<<<<<<<<<<<<<<<<
+cpu=4
+memory=16.0
+
+--- Price On-Demand : 0.188$
+
+--- Price Reserved : 
+1yr	standard	All Upfront	1102
+3yr	standard	All Upfront	2188
+3yr	convertible	Partial Upfront	0.0515000000
+3yr	convertible	Partial Upfront	1354
+3yr	standard	Partial Upfront	1164
+3yr	standard	Partial Upfront	0.0440000000
+3yr	convertible	No Upfront	0.1113000000
+1yr	standard	Partial Upfront	562
+1yr	standard	Partial Upfront	0.0640000000
+1yr	standard	No Upfront	0.1344000000
+3yr	standard	No Upfront	0.0968000000
+3yr	convertible	All Upfront	2654
+
+---Price SpotHistory : 
+aws ec2 describe-spot-price-history --instance-types t2.xlarge  --product-description "Linux/UNIX (Amazon VPC)"
+{    "SpotPriceHistory": []}>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> A3 <<<<<<<<<<<<<<<<<<<<<<<<<<<
+cpu=2
+memory=17.1
+
+--- Price On-Demand : 0.245$
+
+--- Price Reserved : 
+3yr	standard	All Upfront	1466
+1yr	standard	All Upfront	815
+3yr	standard	Partial Upfront	719
+3yr	standard	Partial Upfront	0.0320000000
+1yr	standard	No Upfront	0.1110000000
+1yr	standard	Partial Upfront	0.0410000000
+
+---Price SpotHistory : 
+aws ec2 describe-spot-price-history --instance-types m2.xlarge  --product-description "Linux/UNIX (Amazon VPC)"
+{    "SpotPriceHistory": []}>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> A2 <<<<<<<<<<<<<<<<<<<<<<<<<<<
+cpu=2
+memory=15.25
+
+--- Price On-Demand : 0.166$
+
+--- Price Reserved : 
+1yr	standard	Partial Upfront	514
+1yr	standard	Partial Upfront	0.0310000000
+3yr	convertible	All Upfront	2084
+1yr	standard	No Upfront	0.1050000000
+3yr	standard	Partial Upfront	0.0250000000
+3yr	standard	Partial Upfront	981
+3yr	convertible	No Upfront	0.0950000000
+3yr	convertible	Partial Upfront	1388
+3yr	convertible	Partial Upfront	0.0280000000
+3yr	standard	All Upfront	1532
+1yr	standard	All Upfront	772
+
+---Price SpotHistory : 
+aws ec2 describe-spot-price-history --instance-types r3.large  --product-description "Linux/UNIX (Amazon VPC)"
+{    "SpotPriceHistory": []}>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> A6 <<<<<<<<<<<<<<<<<<<<<<<<<<<
+cpu=8
+memory=30.0
+
+--- Price On-Demand : 0.532$
+
+--- Price Reserved : 
+3yr	convertible	All Upfront	7668
+3yr	convertible	No Upfront	0.3420000000
+3yr	standard	All Upfront	5493
+3yr	standard	Partial Upfront	2691
+3yr	standard	Partial Upfront	0.1200000000
+3yr	convertible	Partial Upfront	4544
+3yr	convertible	Partial Upfront	0.1250000000
+1yr	standard	All Upfront	2840
+1yr	standard	No Upfront	0.3800000000
+1yr	standard	Partial Upfront	0.1390000000
+
+---Price SpotHistory : 
+aws ec2 describe-spot-price-history --instance-types m3.2xlarge  --product-description "Linux/UNIX (Amazon VPC)"
+{    "SpotPriceHistory": []}>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> A7 <<<<<<<<<<<<<<<<<<<<<<<<<<<
+cpu=8
+memory=30.0
+
+--- Price On-Demand : 0.532$
+
+--- Price Reserved : 
+3yr	convertible	All Upfront	7668
+3yr	convertible	No Upfront	0.3420000000
+3yr	standard	All Upfront	5493
+3yr	standard	Partial Upfront	2691
+3yr	standard	Partial Upfront	0.1200000000
+3yr	convertible	Partial Upfront	4544
+3yr	convertible	Partial Upfront	0.1250000000
+1yr	standard	All Upfront	2840
+1yr	standard	No Upfront	0.3800000000
+1yr	standard	Partial Upfront	0.1390000000
+
+---Price SpotHistory : 
+aws ec2 describe-spot-price-history --instance-types m3.2xlarge  --product-description "Linux/UNIX (Amazon VPC)"
+{    "SpotPriceHistory": []}>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> A5 <<<<<<<<<<<<<<<<<<<<<<<<<<<
+cpu=4
+memory=16.0
+
+--- Price On-Demand : 0.188$
+
+--- Price Reserved : 
+1yr	standard	All Upfront	1102
+3yr	standard	All Upfront	2188
+3yr	convertible	Partial Upfront	0.0515000000
+3yr	convertible	Partial Upfront	1354
+3yr	standard	Partial Upfront	1164
+3yr	standard	Partial Upfront	0.0440000000
+3yr	convertible	No Upfront	0.1113000000
+1yr	standard	Partial Upfront	562
+1yr	standard	Partial Upfront	0.0640000000
+1yr	standard	No Upfront	0.1344000000
+3yr	standard	No Upfront	0.0968000000
+3yr	convertible	All Upfront	2654
+
+---Price SpotHistory : 
+aws ec2 describe-spot-price-history --instance-types t2.xlarge  --product-description "Linux/UNIX (Amazon VPC)"
+{    "SpotPriceHistory": []}>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> A4 <<<<<<<<<<<<<<<<<<<<<<<<<<<
+cpu=8
+memory=30.0
+
+--- Price On-Demand : 0.532$
+
+--- Price Reserved : 
+3yr	convertible	All Upfront	7668
+3yr	convertible	No Upfront	0.3420000000
+3yr	standard	All Upfront	5493
+3yr	standard	Partial Upfront	2691
+3yr	standard	Partial Upfront	0.1200000000
+3yr	convertible	Partial Upfront	4544
+3yr	convertible	Partial Upfront	0.1250000000
+1yr	standard	All Upfront	2840
+1yr	standard	No Upfront	0.3800000000
+1yr	standard	Partial Upfront	0.1390000000
+
+---Price SpotHistory : 
+aws ec2 describe-spot-price-history --instance-types m3.2xlarge  --product-description "Linux/UNIX (Amazon VPC)"
+{    "SpotPriceHistory": []}

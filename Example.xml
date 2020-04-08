@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Process time="200">
+<Tasks>
+	<Task id="1" minTime="1" maxTime="3" StartTime="2017-06-02 14:08:09" endTime="2017-06-02 14:08:09" length="10000">
+		<attachedTo>
+			<target id="2" startAfter="2" />
+			<target id="3" startAfter="3" />
+		</attachedTo>
+	
+	<Resources>
+		<Resource id="VM_1" name="VM" type="nano" location="US East (N. Virginia)" strategy="on-demand" os="Linux" dcpu="1" memory="4"/> 
+	</Resources>
+
+	</Task>
+
+	<Task id="2" minTime="1" maxTime="1" StartTime="2017-06-02 14:09:29" endTime="2017-06-02 14:08:09" length="10">
+		<attachedTo>
+			<target id="4" startAfter="2" />
+ 		</attachedTo>
+	<Resources>
+	<Resource id="VM_2" name="VM" type="large" location="US East (N. Virginia)" strategy="Reserved" os="Linux" dcpu="2" memory="4"/> 
+	</Resources>
+	</Task>
+
+	<Task id="3" minTime="2" maxTime="3" StartTime="2017-06-02 14:18:49" endTime="2017-06-02 14:08:09" length="800000">
+		<attachedTo>
+			<target id="4" startAfter="2" />
+		</attachedTo>
+	<Resources>
+	<Resource id="VM_3" name="VM" type="large" location="US East (N. Virginia)" strategy="Reserved" os="Linux" dcpu="2" memory="4"/> 
+	</Resources>
+	</Task>
+
+	<Task id="4" minTime="1" maxTime="3" StartTime="2017-06-02 18:11:39" endTime="2017-06-02 14:08:09" length="700000">
+	<Resources>
+		<Resource id="VM_4" name="VM" type="large" location="US East (N. Virginia)" strategy="Spot" os="Linux" dcpu="4" memory="6"/> 
+		<Resource id="storage_1" name="Storage" type="large" location="US East (N. Virginia)" size="8"/> 
+	</Resources>
+	</Task>
+
+</Tasks>
+</Process>

@@ -1,0 +1,71 @@
+<conf_sim number_user="1">
+	<vm_list>
+			<vm vmid="id.0" mips="100" size="100" ram="1024" bw="100" pesNumber="2" vmm="Xen" userid="1" cloudletScheduler="..."/> <!-- vmm: Virtual Machine Monitor -->
+			<vm vmid="id.1" mips="10" size="100" ram="512" bw="100" pesNumber="1" vmm="Xen" userid="1" cloudletScheduler="..."/> <!-- mips: million instruction par second -->				
+	</vm_list>
+	<cloudlet_list>
+			<cloudlet id="0" length="400" fileSize="30" outputSize="30" vmid="id.1" userid="1" costPerBw="0.0" pesNumber="1" />
+			<cloudlet id="1" length="40000" fileSize="300" outputSize="30" vmid="id.1" userid="1" costPerBw="0.0" pesNumber="1" />
+			<cloudlet id="2" length="4000" fileSize="30" outputSize="30" vmid="id.1" userid="1" costPerBw="0.0" pesNumber="1" />
+			<cloudlet id="3" length="40000" fileSize="300" outputSize="30" vmid="id.0" userid="1" costPerBw="0.0" pesNumber="1" />
+			<cloudlet id="4" length="4000" fileSize="30" outputSize="30" vmid="id.0" userid="1" costPerBw="0.0" pesNumber="1" />
+			<cloudlet id="5" length="40000" fileSize="300" outputSize="30" vmid="id.0" userid="1" costPerBw="0.0" pesNumber="1" />
+			
+	</cloudlet_list>	
+	<dataCenter_list>
+		<dataCenter dc_name="dataCenter0" VmAllocationPolicy="..." dc_c="...">
+			<host_list>	
+				<Host hostId="0" storage="1000000" mips="1000" RamProvisioner="..." BwProvisioner="..." VmScheduler="...">
+					<RamProvisionerPolicy RamProvisionerPolicytype="..." ram="2048" />
+					<BwProvisionerPolicy BwProvisionerPolicytype="..." bw="10000" />
+					<Pelist>
+						<pe id="0"/>
+						<PeProvisionerPolicy PeProvisionerPolicytype="..." mips="1000" />
+					</Pelist>
+					<VmSchedulerPolicy VmSchedulerType="..."/>
+				</Host>
+			</host_list>	
+			<dc_charasteristics arch="x86" os="Linux" vmm="Xen" time_zone="10.0" costPermen="0.55" costPerStorage="0.001" costPerBw="0.0" costPerSecond="3.0"/>
+			<Storage_List>
+				<san name="san1" Capacity="1000" MaxTransferRate="1000" Latency="10.0" AVGSeekTime="3.0" Bw="100" Network="N1" />
+				<Hard_Drive name="HD1" Capacity="500" MaxTransferRate="500" Latency="5.0" AVGSeekTime="3.0" />
+			</Storage_List>
+		</dataCenter>
+		<dataCenter dc_name="dataCenter1" VmAllocationPolicy="..." dc_c="...">
+			<host_list>	
+				<Host hostId="1" storage="1000000" mips="1000" RamProvisioner="..." BwProvisioner="..." VmScheduler="..." >
+					<RamProvisionerPolicy RamProvisionerPolicytype="..." ram="2048" />
+					<BwProvisionerPolicy BwProvisionerPolicytype="..." bw="10000" />
+					<Pelist>
+						<pe id="1"/>
+						<PeProvisionerPolicy PeProvisionerPolicytype="..." mips="1000" />
+					</Pelist>
+					<VmSchedulerPolicy VmSchedulerType="..."/>
+				</Host>
+			</host_list>		
+			<dc_charasteristics arch="x86" os="Linux" vmm="Xen" time_zone="10.0" costPermen="0.55" costPerStorage="0.001" costPerBw="0.0" costPerSecond="3.0"/>
+			<Storage_List>
+				<san name="san2" Capacity="2000" MaxTransferRate="1000" Latency="10.0" AVGSeekTime="3.0" Bw="100" Network="N1" />
+				<Hard_Drive name="HD2" Capacity="300" MaxTransferRate="500" Latency="5.0" AVGSeekTime="3.0" />
+			</Storage_List>
+		</dataCenter>
+		<dataCenter dc_name="dataCenter2" VmAllocationPolicy="..." dc_c="...">
+			<host_list>	
+				<Host hostId="2" storage="1000000" mips="1000" RamProvisioner="..." BwProvisioner="..." VmScheduler="...">
+					<RamProvisionerPolicy RamProvisionerPolicytype="..." ram="2048" />
+					<BwProvisionerPolicy BwProvisionerPolicytype="..." bw="10000" />
+					<Pelist>
+						<pe id="2"/>
+						<PeProvisionerPolicy PeProvisionerPolicytype="..." mips="1000" />
+					</Pelist>
+					<VmSchedulerPolicy VmSchedulerType="..."/>
+				</Host>
+			</host_list>		
+			<dc_charasteristics arch="x86" os="Linux" vmm="Xen" time_zone="10.0" costPermen="0.55" costPerStorage="0.001" costPerBw="0.0" costPerSecond="3.0"/>
+			<Storage_List>
+				<san name="san3" Capacity="1500" MaxTransferRate="1000" Latency="10.0" AVGSeekTime="3.0" Bw="100" Network="N1" />
+				<Hard_Drive name="HD3" Capacity="100" MaxTransferRate="500" Latency="5.0" AVGSeekTime="3.0" />
+			</Storage_List>
+		</dataCenter>
+	</dataCenter_list>	
+</conf_sim>

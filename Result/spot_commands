@@ -1,0 +1,16 @@
+aws ec2 describe-spot-price-history --instance-types t2.xlarge  --product-description "Linux/UNIX (Amazon VPC)" >> a1.json
+
+aws ec2 describe-spot-price-history --instance-types m2.xlarge  --product-description "Linux/UNIX (Amazon VPC)" >> a3.json
+
+
+aws ec2 describe-spot-price-history --instance-types r3.large  --product-description "Linux/UNIX (Amazon VPC)" >> a2.json
+
+
+aws ec2 describe-spot-price-history --instance-types m3.2xlarge  --product-description "Linux/UNIX (Amazon VPC)" >> a6.json
+
+
+aws ec2 describe-spot-price-history --instance-types m3.2xlarge  --product-description "Linux/UNIX (Amazon VPC)" >> a7.json
+
+aws ec2 describe-spot-price-history --instance-types t2.xlarge  --product-description "Linux/UNIX (Amazon VPC)" >> a5.json
+
+aws ec2 describe-spot-price-history --instance-types m3.2xlarge  --product-description "Linux/UNIX (Amazon VPC)" >> a4.json
